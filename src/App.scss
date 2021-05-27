@@ -1,0 +1,525 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  transition: all 0.2s;
+  &:focus {
+    outline: 0 !important;
+  }
+}
+body {
+  margin: 0;
+}
+#app {
+  margin: 0;
+}
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+// Container
+.env {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  /* - BACKGROUNDS */
+
+  /* - Dark */
+  $bgdark: rgb(21, 19, 28);
+  $badgeDark: rgb(37, 35, 46);
+  $navbarTop: rgb(225, 39, 70);
+  $buttonDark: rgba(37, 35, 46);
+  $buttonDark1: rgba(37, 35, 46, 0.9);
+  $buttonDark2: rgba(37, 35, 46, 0.7);
+  $buttonBorderDark: rgb(51, 50, 57);
+  $darkCardBackground: rgb(30, 28, 38);
+  $darkCardBackgrondHover: rgba(30, 28, 38, 0.7);
+  $darkSearchBackground: rgb(32, 32, 43);
+  /* - Light */
+  $bglight: #f5f4f7;
+  $badgeLight: #ffffff;
+  $buttonLight: #fff;
+  $buttonLight1: rgb(255, 251, 251);
+  $buttonLight2: rgb(252, 248, 248);
+  $buttonBorderLight: rgb(239, 236, 236);
+
+  /* - Text Colors */
+
+  /* - White */
+  $white50: rgb(120, 115, 115);
+  $white200: rgb(210, 217, 225);
+  $white300: rgb(231, 235, 240);
+  $white500: rgb(246, 249, 252);
+  /* - Dark */
+  $black50: rgb(77, 77, 76);
+  $black200: rgb(62, 62, 61);
+  /* - Selection Colors */
+  $selection: rgb(92, 124, 250);
+  // - DARK THEME
+  .dark {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: $bgdark;
+    color: $white200;
+    @include selection {
+      color: $white500;
+      background: $selection;
+    }
+    button {
+      transition: background 0.2s;
+      background: $badgeDark;
+      border: 2px solid $darkCardBackground;
+      display: flex;
+      border-radius: 50px;
+      color: $white300;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 15px;
+      cursor: pointer;
+      padding: 10px 15px;
+      &:hover {
+        transition: all 0.2s;
+        background: $darkSearchBackground;
+      }
+    }
+    .title-hr hr {
+      display: inline-block;
+      width: 16%;
+      margin: 5px 10px;
+      border: 1px solid $white300;
+  }
+    .badge {
+      background: $badgeDark;
+      position: relative;
+      display: flex;
+      width: max-content;
+      padding: 5px 15px;
+      font-weight: 500;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 0.5px;
+      justify-items: center;
+      border-radius: 5px;
+    }
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .lds-ellipsis div {
+      position: absolute;
+      top: 33px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #fff;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+      left: 8px;
+      animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+      left: 8px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+      left: 32px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+      left: 56px;
+      animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes lds-ellipsis3 {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+    @keyframes lds-ellipsis2 {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(24px, 0);
+      }
+    }
+    .search {
+      background: $darkSearchBackground;
+      width: 707px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      position: relative;
+      border-radius: 50px;
+      height: 70px;
+      input {
+        font-size: 14px;
+        width: 90%;
+        padding-right: 5px;
+        height: 80%;
+        border: none;
+        outline: 0 !important;
+        background: transparent;
+        &::placeholder {
+          color: $white50;
+        }
+        color: white;
+      }
+      .icon {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    }
+    .toggleButtons {
+      display: flex;
+      position: absolute;
+      margin: 0;
+      .btn1 {
+        background: $buttonDark;
+        border: none;
+        text-align: center;
+        padding: 13px 18px;
+        color: $white500;
+        font-weight: 600;
+        border-radius: 5px 0 0 5px;
+        border-right: 1px solid $buttonBorderDark;
+        &:hover {
+          cursor: pointer;
+          transition: all 0.2s;
+          background: $buttonDark1;
+        }
+        &:active {
+          background: $buttonDark2;
+        }
+      }
+      .btn2 {
+        text-align: center;
+        background: $buttonDark;
+        border: none;
+        padding: 13px 18px;
+        color: $white500;
+        font-weight: 600;
+        border-radius: 0 5px 5px 0;
+        &:hover {
+          transition: all 0.2s;
+          cursor: pointer;
+          background: $buttonDark1;
+        }
+        &:active {
+          background: $buttonDark2;
+        }
+      }
+    }
+    .navbar {
+      &--top {
+        border-top: 1px solid $navbarTop;
+        position: relative;
+        display: flex;
+        color: $white300;
+        top: 0;
+        align-items: center;
+        justify-items: center;
+        left: 0;
+        padding: 0 50px;
+        .toggleButtons {
+          position: absolute;
+          right: 105px;
+          top: 5px;
+        }
+        .navbar-item {
+          font-family: "Poppins";
+          padding: 10px 15px;
+          margin-left: 5px;
+          color: $white300;
+          text-decoration: none;
+          &:hover {
+            color: $white500;
+          }
+        }
+        .active {
+          font-weight: bold;
+          color: $white500;
+        }
+
+        .navbar-brand {
+          font-weight: 900;
+          display: flex;
+          text-transform: uppercase;
+          font-family: "Fredoka One", cursive;
+          font-size: 25px;
+        }
+        .toggleOpen {
+          display: none;
+        }
+      }
+    }
+    @media screen and (max-width: 620px) {
+      p {
+        max-width: 357px;
+      }
+      .search {
+        width: 377px !important;
+        input {
+          width: 80% !important;
+        }
+      }
+      .card {
+        width: 377px !important;
+        .serverName {
+          left: 20px !important;
+          width: 190px !important;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .stat {
+          left: 25px !important;
+        }
+        .stat2 {
+          left: 35px !important;
+        }
+      }
+      .navbar {
+        &--top {
+          position: relative;
+          padding: 0;
+          display: flex;
+          width: 100%;
+          .toggleButtons {
+            right: 4px !important;
+            top: 4px !important;
+            position: relative;
+            .btn1 {
+              padding: 13px 10px;
+            }
+            .btn2 {
+              padding: 13px 10px;
+            }
+          }
+          .navbar-item {
+            display: none;
+          }
+          .navbar-brand {
+            display: flex;
+            margin: auto 0;
+          }
+
+          .toggleOpen {
+            transition: all 0;
+            cursor: pointer;
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            justify-items: center;
+            display: flex;
+            position: absolute;
+            right: 0;
+            margin: auto 20px;
+            border-radius: 5px;
+            border: 2px solid $white500;
+            padding: 5px 7px;
+          }
+          .toggleButtons {
+            display: none;
+          }
+        }
+        &--open {
+          display: inline-block;
+          position: relative;
+          .navbar-item {
+            display: block;
+          }
+          .toggleOpen {
+            transition: all 0;
+            cursor: pointer;
+            display: flex;
+            position: fixed;
+            top: 10px;
+            right: 0;
+            background: $white500;
+            color: $black200;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 890px) {
+      .navbar {
+        &--top {
+          padding: 0;
+          .toggleButtons {
+            right: 10px;
+            top: 5px;
+          }
+        }
+      }
+    }
+    .card {
+      display: flex;
+
+      background: $darkCardBackground;
+      width: 807px;
+      border-radius: 15px;
+      height: 90px;
+      padding-left: 0;
+      cursor: pointer;
+      margin-bottom: 15px;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      transition: background 0.2s;
+      &:hover {
+        transition: all 0.2s;
+        background: $darkCardBackgrondHover;
+      }
+      text-align: left;
+      justify-content: left;
+      align-items: center;
+      justify-items: center;
+      .img {
+        border-radius: 15px 0 0 15px;
+        display: flex;
+        position: relative;
+        left: 0;
+        height: 100%;
+        width: 85px;
+        top: 0;
+      }
+      .serverName {
+        position: relative;
+        font-weight: bold;
+        left: 20px;
+        font-weight: 300 !important;
+        text-transform: uppercase;
+        font-size: 23px;
+        display: inline-block;
+        width: 450px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .stat {
+        position: relative;
+        display: inline-block;
+        width: 33px;
+        left: 175px;
+        text-align: right;
+        font-size: 22px;
+        margin-right: 0;
+      }
+      .stat2 {
+        font-size: 22px;
+        position: relative;
+        display: flex;
+        left: 197px;
+      }
+    }
+  }
+
+  // - LIGHT THEME
+  .light {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: $bglight;
+    color: $black200;
+    @include selection {
+      color: $white500;
+      background: $selection;
+    }
+    .badge {
+      background: $badgeLight;
+      display: flex;
+
+      width: max-content;
+      padding: 12px 6px;
+      font-weight: 500;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 0.5px;
+      justify-items: center;
+      border-radius: 5px;
+    }
+    .toggleButtons {
+      display: flex;
+      margin: 0;
+      .btn1 {
+        background: $buttonLight;
+        border: none;
+        padding: 13px 18px;
+        color: $black50;
+        font-weight: 600;
+        border-radius: 5px 0 0 5px;
+        border-right: 1px solid $buttonBorderLight;
+        &:hover {
+          cursor: pointer;
+          transition: all 0.2s;
+          background: $buttonLight1;
+        }
+        &:active {
+          background: $buttonLight2;
+        }
+      }
+      .btn2 {
+        background: $buttonLight;
+        border: none;
+        padding: 13px 18px;
+        color: $black50;
+        font-weight: 600;
+        border-radius: 0 5px 5px 0;
+        &:hover {
+          transition: all 0.2s;
+          cursor: pointer;
+          background: $buttonLight1;
+        }
+        &:active {
+          background: $buttonLight2;
+        }
+      }
+    }
+    .navbar {
+      &--top {
+        position: relative;
+        display: flex;
+        color: $black200;
+        top: 0;
+        align-items: center;
+        justify-items: center;
+        left: 0;
+        padding-left: 150px;
+        padding-right: 150px;
+
+        .navbar-item {
+          font-family: "Poppins";
+          padding: 10px 15px;
+          margin-left: 5px;
+        }
+
+        .navbar-brand {
+          font-weight: 900;
+          text-transform: uppercase;
+          font-family: "Fredoka One", cursive;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

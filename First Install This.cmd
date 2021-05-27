@@ -1,0 +1,1 @@
+@echo off && cd api && yarn && cd .. && yarn && start Run.cmd

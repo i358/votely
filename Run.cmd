@@ -1,0 +1,1 @@
+@echo off && yarn start
