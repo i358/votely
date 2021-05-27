@@ -79,7 +79,7 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start":"cd api && npm install && cd .. && npm install && npm start",
+    "start":"cd api && npm install && cd .. && npm install && npm devStart",
     "devStart": "node scripts/start.js",
     "worker": "electron Worker.js",
     "build": "node scripts/build.js",
