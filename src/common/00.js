@@ -7,9 +7,9 @@ const config = {
   API_VERSION: "1",
   SECRET: "ccc359959s",
   CLIENT:{
-    "TOKEN":"ODQ3MTU5Mzk1MjA4MjY1NzM5.YK6Aqw.-vGg4ssiEPPeFq6N-q2JR-dod90",
-    "SECRET":"2QETlNvdSNHZxCkaPTNsLJ5vzwSp0M7x",
-    "ID":"847159395208265739"
+    "TOKEN":"",
+    "SECRET":"",
+    "ID":""
   }
 };
 
